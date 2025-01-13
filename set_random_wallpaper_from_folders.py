@@ -15,7 +15,7 @@ def is_valid_image(file_path, image_extensions):
 
 def select_random_existing_image(folder, include_subfolders, image_extensions):
     """
-    Selects a random image from the specified folder and subfolders (if enabled).
+    Selects a random image from the specified folder and subfolders (if include).
     """
     search_pattern = '**/*' if include_subfolders else '*'
     images = [
@@ -35,6 +35,7 @@ def set_wallpaper(image_path):
     Sets the specified image as the desktop wallpaper.
     """
     ctypes.windll.user32.SystemParametersInfoW(20, 0, str(image_path), 3)
+    print(f"Wallpaper set to: {image_path}")
 
 
 def main():
@@ -42,7 +43,6 @@ def main():
     Main function to select and set a random image from the folders.
     """
     try:
-        # Get configuration data
         FOLDERS = config.FOLDERS
         IMAGE_EXTENSIONS = config.IMAGE_EXTENSIONS
 
@@ -58,10 +58,8 @@ def main():
 
         # Set the selected image as the wallpaper
         set_wallpaper(selected_image)
-        print(f"Wallpaper set to: {selected_image}")
-
     except Exception as err:
-        print(f"An error occurred: {err}")
+        print(f"Error in main function: {err}")
 
 
 if __name__ == "__main__":
