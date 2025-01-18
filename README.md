@@ -56,6 +56,6 @@ To run the script automatically on system startup, set up a task in Windows Task
   </div>
 
   <div style="text-align: center;">
-    <img src="Task Scheduler - General.png" alt="Task Scheduler - General" width="75%" />
+    <img src="Task Scheduler - Actions.png" alt="Task Scheduler - Actions" width="75%" />
   </div>
 </div>
